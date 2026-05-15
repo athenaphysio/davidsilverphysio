@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Nonverbal Coach · Dr David Silver PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F2EDE4; --cream-dark: #E8E1D6; --cream-border: #D8CFC4;
+    --crimson: #9B1C1C; --charcoal: #1C1C1C; --charcoal-mid: #3A3A3A; --charcoal-light: #6B6B6B;
+    --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+  }
+  body { background: var(--cream); color: var(--charcoal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--cream-border); padding: 0 2.5rem; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-left { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+  .nav-mark { width: 30px; height: 30px; object-fit: contain; }
+  .nav-brand { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--charcoal); }
+  .nav-brand em { font-style: italic; color: var(--crimson); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 11px; font-weight: 400; color: var(--charcoal-light); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--crimson); }
+  .article-hero { margin-top: 68px; position: relative; overflow: hidden; background: var(--cream); height: 320px; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 1; }
+  .hero-grad { position: absolute; inset: 0; background: rgba(28,28,28,0); }
+  .article-header { background: var(--cream); padding: 3rem 2rem 2.5rem; max-width: 680px; margin: 0 auto; border-bottom: 1px solid var(--cream-border); }
+  .art-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+  .art-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--crimson); }
+  .art-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.18; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .art-sub { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--charcoal-light); margin-bottom: 1.75rem; line-height: 1.55; }
+  .art-meta-row { display: flex; align-items: center; gap: 1.25rem; }
+  .art-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--cream-border); }
+  .art-author-name { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--charcoal); display: block; }
+  .art-meta-info { font-size: 11px; color: var(--charcoal-light); letter-spacing: 0.04em; display: flex; gap: 0.6rem; align-items: center; }
+  .mdot { width: 3px; height: 3px; border-radius: 50%; background: var(--cream-border); }
+  .article-body { max-width: 640px; margin: 0 auto; padding: 3rem 2rem 5rem; font-family: var(--serif); font-size: 19px; font-weight: 300; line-height: 1.85; color: var(--charcoal-mid); }
+  .article-body p { margin-bottom: 1.5rem; }
+  .article-body strong { font-weight: 500; color: var(--charcoal); }
+  .article-body em { font-style: italic; }
+  .sec-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin: 3.5rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--cream-border); }
+  .pull-quote { border-left: 3px solid var(--crimson); padding: 1rem 0 1rem 1.75rem; margin: 2.5rem 0; }
+  .pull-quote p { font-family: var(--serif); font-size: 22px; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--charcoal); margin-bottom: 0.5rem !important; }
+  .pull-quote cite { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal-light); font-style: normal; }
+  hr.div { border: none; border-top: 1px solid var(--cream-border); margin: 3rem 0; }
+  .art-nav { max-width: 680px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--cream-border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .art-nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); text-decoration: none; }
+  .art-nav a:hover { text-decoration: underline; }
+  .back-lnk { font-size: 12px; color: var(--charcoal-light); text-decoration: none; }
+  .back-lnk:hover { color: var(--crimson); }
+  .sub-block { background: var(--charcoal); padding: 3rem 2rem; text-align: center; }
+  .sub-block h3 { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 0.75rem; }
+  .sub-block p { font-size: 14px; font-weight: 300; color: rgba(242,237,228,0.55); margin-bottom: 1.5rem; }
+  .sub-block a { display: inline-block; padding: 0.7rem 2rem; background: var(--crimson); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+  footer { background: var(--charcoal); padding: 2rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .ft-bottom { max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 11px; color: rgba(242,237,228,0.28); flex-wrap: wrap; gap: 0.5rem; }
+  @media (max-width: 600px) { .nav-links { display: none; } .article-body { font-size: 17px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-left">
+    <img src="athena-mark.png" alt="Athena" class="nav-mark">
+    <span class="nav-brand">Dr David Silver PhD · <em>Athena</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="programmes.html">Programmes</a></li>
+    <li><a href="blog.html" class="active">Writing</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="article-hero">
+  <img src="blog_cover.jpg" alt="" class="hero-img">
+  <div class="hero-grad"></div>
+</div>
+<header class="article-header">
+  <p class="art-eyebrow">In the Room with Dr David Silver PhD · Edition Six</p>
+  <h1 class="art-title">The Nonverbal Coach</h1>
+  <p class="art-sub">Why the most powerful clinical interventions are the ones the patient never notices.</p>
+  <div class="art-meta-row">
+    <img src="silver.png" alt="Dr David Silver PhD" class="art-avatar">
+    <div>
+      <span class="art-author-name">Dr David Silver PhD</span>
+      <div class="art-meta-info"><span>July 2026</span><span class="mdot"></span><span>9 min read</span></div>
+    </div>
+  </div>
+</header>
+<article class="article-body">
+
+<p class="sec-label">The moment</p>
+<p>A client came in recently and we worked on a squat pattern. The movement did not look right. Not dangerously wrong — just not right. The right knee was tracking poorly.</p>
+<p>The default coaching response, and my instinct, would be to tell them:</p>
+<p>Stick your bum out more. More knee over toe. That looks great but try to...</p>
+<p>I didn't say any of that.</p>
+<p>Instead, I took them away from the squat entirely. We did something else — a different drill with a different demand, something that would load the exact movement pattern I needed without either of us mentioning the squat or what was wrong with it.</p>
+<p>Then we came back.</p>
+<p>The squat had changed. Not because I had told them what to fix. Because I had created the conditions in which fixing it became the only natural option.</p>
+<p>They did not know what had happened. That was precisely the point.</p>
+<div class="pull-quote"><p>"You come to me and do a back squat and it looks a bit iffy. Classically I would say — that looks great, stick your bum out more. That is a verbal cue. And it is a constant critique. Even if I say that looked really good but try and stick your bum out — there is a critique in it. This way I am one hundred percent positive throughout."</p><cite>From the clinic</cite></div>
+
+<p class="sec-label">Why verbal correction undermines itself</p>
+<p>The coaching and rehabilitation industry is built on verbal cues. You observe and identify the fault. You name it and instruct the correction.</p>
+<p>But the moment you name a fault, you introduce it into conscious awareness. And conscious awareness, in movement, is the enemy of fluency.</p>
+<p>More than that, correction is intrinsically critique. Even when dressed up in positivity. Even sandwiched between the highest praise. There is always a critique in it.</p>
+<p>What is reinforced without conscious awareness is reinforced twice as hard.</p>
+
+<p class="sec-label">What you do instead</p>
+<p>You do not fix the movement. You create the conditions in which a different movement becomes inevitable.</p>
+<p>A drill that demands exactly the thing that is missing. A position that makes the compensatory pattern less inevitable. A load that forces the body to find the right solution because the wrong one simply will not work.</p>
+<p>The client does the drill. They return to the original movement. It has changed — not because they were told what to do differently, but because their neuromuscular system has been quietly reorganised around a new pattern.</p>
+<div class="pull-quote"><p>"When you come to do the flowing thing — you do not need to worry about whether it looks right or not. Because if we have done it well, all of the As, Bs and Cs that have led up to it mean that you are going to be moving in a flowing, hopefully subconscious fashion."</p><cite>From the clinic</cite></div>
+
+<p class="sec-label">The Mick Jagger principle</p>
+<p>How we hold our body influences how we think and feel. Not as a secondary effect. As a primary driver.</p>
+<p>I worked with a well-known actor who had been through a serious cardiac procedure. He came in hunched, guarded, moving like someone who had decided they were fragile.</p>
+<p>I said to him: you are playing the role of someone who is fragile and in a lot of pain. He paused and said — yeah, I sort of get what you mean.</p>
+<div class="pull-quote"><p>"Who do you know that moves in the most fluid, languid, beautiful way? Mick Jagger. Put yourself into that when you move. The tightness came out of his system immediately. Before it was 'I am conscious of this, I am rigid, I am thinking too hard.' Now it is fluid."</p><cite>From the clinic</cite></div>
+<p>One small shift in internal image. The whole posture reorganised around it.</p>
+<p>Palm up or palm down is another version of the same principle. Palm up opens the chest, changes the shoulder position, shifts the whole postural pattern — without a word of instruction. The body leads. The mind follows.</p>
+
+<p class="sec-label">The bigger picture</p>
+<p>Rehabilitation is full of people who have been corrected. Who have been told kindly, professionally, that they are doing it wrong. Many of them have absorbed that message not just about their movement but about themselves.</p>
+<p>The nonverbal approach is not just more neurologically effective. It is kinder. It keeps the person in a state of competence rather than deficit. They are fostering the change, not me. It is empowering.</p>
+<p>There is a moment I watch for in every client. The moment they stop performing movement and start inhabiting it.</p>
+<p>You cannot get there through correction. You can only get there by building the conditions in which it becomes possible — and then stepping back.</p>
+<p>That is the nonverbal coach's whole job.</p>
+<hr class="div">
+<p><em>Next: The Weighing Scales.</em></p>
+
+</article>
+<div class="art-nav">
+  <a href="blog-edition-5.html" class="back-lnk">← Edition Five</a>
+  <a href="blog-edition-7.html">Next: The Weighing Scales →</a>
+</div>
+<div class="sub-block">
+  <h3>Get every edition delivered</h3>
+  <p>Subscribe on LinkedIn — each issue goes direct to your inbox, fortnightly.</p>
+  <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+</div>
+<footer>
+  <div class="ft-bottom">
+    <span>© 2026 Dr David Silver PhD · Athena Physio</span>
+    <span>MCSP 079015 · HCPC PH82005</span>
+  </div>
+</footer>
+</body>
+</html>

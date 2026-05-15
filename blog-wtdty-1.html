@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Am Not What You Think I Am · Dr David Silver PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F2EDE4; --cream-dark: #E8E1D6; --cream-border: #D8CFC4;
+    --crimson: #9B1C1C; --charcoal: #1C1C1C; --charcoal-mid: #3A3A3A; --charcoal-light: #6B6B6B;
+    --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+  }
+  body { background: var(--cream); color: var(--charcoal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--cream-border); padding: 0 2.5rem; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-left { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+  .nav-mark { width: 30px; height: 30px; object-fit: contain; }
+  .nav-brand { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--charcoal); }
+  .nav-brand em { font-style: italic; color: var(--crimson); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 11px; font-weight: 400; color: var(--charcoal-light); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--crimson); }
+  .article-hero { margin-top: 68px; position: relative; overflow: hidden; background: var(--cream); height: 320px; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 1; }
+  .hero-grad { position: absolute; inset: 0; background: rgba(28,28,28,0); }
+  .article-header { background: var(--cream); padding: 3rem 2rem 2.5rem; max-width: 680px; margin: 0 auto; border-bottom: 1px solid var(--cream-border); }
+  .art-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+  .art-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--crimson); }
+  .art-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.18; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .art-sub { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--charcoal-light); margin-bottom: 1.75rem; line-height: 1.55; }
+  .art-meta-row { display: flex; align-items: center; gap: 1.25rem; }
+  .art-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--cream-border); }
+  .art-author-name { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--charcoal); display: block; }
+  .art-meta-info { font-size: 11px; color: var(--charcoal-light); letter-spacing: 0.04em; display: flex; gap: 0.6rem; align-items: center; }
+  .mdot { width: 3px; height: 3px; border-radius: 50%; background: var(--cream-border); }
+  .article-body { max-width: 640px; margin: 0 auto; padding: 3rem 2rem 5rem; font-family: var(--serif); font-size: 19px; font-weight: 300; line-height: 1.85; color: var(--charcoal-mid); }
+  .article-body p { margin-bottom: 1.5rem; }
+  .article-body strong { font-weight: 500; color: var(--charcoal); }
+  .article-body em { font-style: italic; }
+  .sec-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin: 3.5rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--cream-border); }
+  .pull-quote { border-left: 3px solid var(--crimson); padding: 1rem 0 1rem 1.75rem; margin: 2.5rem 0; }
+  .pull-quote p { font-family: var(--serif); font-size: 22px; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--charcoal); margin-bottom: 0.5rem !important; }
+  .pull-quote cite { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal-light); font-style: normal; }
+  hr.div { border: none; border-top: 1px solid var(--cream-border); margin: 3rem 0; }
+  .art-nav { max-width: 680px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--cream-border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .art-nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); text-decoration: none; }
+  .art-nav a:hover { text-decoration: underline; }
+  .back-lnk { font-size: 12px; color: var(--charcoal-light); text-decoration: none; }
+  .back-lnk:hover { color: var(--crimson); }
+  .sub-block { background: var(--charcoal); padding: 3rem 2rem; text-align: center; }
+  .sub-block h3 { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 0.75rem; }
+  .sub-block p { font-size: 14px; font-weight: 300; color: rgba(242,237,228,0.55); margin-bottom: 1.5rem; }
+  .sub-block a { display: inline-block; padding: 0.7rem 2rem; background: var(--crimson); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+  footer { background: var(--charcoal); padding: 2rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .ft-bottom { max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 11px; color: rgba(242,237,228,0.28); flex-wrap: wrap; gap: 0.5rem; }
+  @media (max-width: 600px) { .nav-links { display: none; } .article-body { font-size: 17px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-left">
+    <img src="athena-mark.png" alt="Athena" class="nav-mark">
+    <span class="nav-brand">Dr David Silver PhD · <em>Athena</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="programmes.html">Programmes</a></li>
+    <li><a href="blog.html" class="active">Writing</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="article-hero">
+  <img src="blog_cover.jpg" alt="" class="hero-img">
+  <div class="hero-grad"></div>
+</div>
+<header class="article-header">
+  <p class="art-eyebrow">What They Didn't Tell You · Launch Piece</p>
+  <h1 class="art-title">I Am Not What You Think I Am</h1>
+  <p class="art-sub">On the gap between what physiotherapy is assumed to be and what actually happens in the room.</p>
+  <div class="art-meta-row">
+    <img src="silver.png" alt="Dr David Silver PhD" class="art-avatar">
+    <div>
+      <span class="art-author-name">Dr David Silver PhD</span>
+      <div class="art-meta-info"><span>2026</span><span class="mdot"></span><span>10 min read</span></div>
+    </div>
+  </div>
+</header>
+<article class="article-body">
+
+<p class="sec-label">The moment</p>
+<p>A new client came in recently — we had never met.</p>
+<p>Before I had said a word about what we were going to do, he said: so, will you be doing some massage, or...?</p>
+<p>It's a question I hear most often from first-time clients. Less so these days as my reputation tends to precede me. It's not always massage — sometimes it is manipulation, ultrasound, or acupuncture. But the underlying assumption is always the same.</p>
+<p>You are here and I am sore. You will do something to me. I will feel better.</p>
+<p>I understand why some people arrive with that expectation. It is what the word physiotherapy implies. It is what most people's previous experience of the profession has been.</p>
+<p>But it is almost never what the person in front of me actually needs.</p>
+<p>So I said to him: I am not a 'rubber'. You are the doer. I am the guide.</p>
+<p>He said: nobody has ever said that to me before.</p>
+<p>That is why I am writing this piece.</p>
+
+<p class="sec-label">What people think physiotherapy is</p>
+<p>The word physiotherapy conjures something specific. A treatment table. Someone with qualified hands working on the part that hurts. Possibly some exercises on a photocopied sheet. I used to draw loads of pictures.</p>
+<p>There is nothing deeply wrong with this model. It exists and has its place.</p>
+<p>But it captures perhaps twenty percent of what I actually do. And in my opinion, it is the least interesting twenty percent.</p>
+
+<p class="sec-label">What physiotherapy actually is — at its best</p>
+<p><strong>Neuroscience education.</strong> The single most important thing I do in many appointments is change how a person understands their own pain. Not manage it. Not reduce it through technique. Change the fundamental model they are using to interpret what their body is telling them.</p>
+<p>Pain is not a direct damage signal. It is a protective output. Two people with identical MRI findings can have completely different pain experiences. Understanding this one thing changes everything.</p>
+<p>Healthcare almost never tells people this. I do. Every time.</p>
+<p><strong>Cognitive reframing.</strong> Before I have laid a hand on anyone, I am already changing the relationship between that person and their symptoms. The weekday-to-weekend pattern in pain levels is almost never about the chair. The client who feels better on holiday is not experiencing a different body — they are experiencing a different context.</p>
+<p><strong>Behavioural coaching.</strong> When a movement does not look right, the conventional response is to name the fault and instruct the correction. But the moment you name a fault, you introduce it into conscious awareness. And conscious awareness, in movement, is the enemy of fluency. What I do instead is create the conditions in which the correct movement becomes the obvious natural option.</p>
+<p><strong>Philosophical counselling.</strong> I worked with a man once who had not been able to walk with his daughter since she left for university. His resistance to exercise traced back to a weekly forced swim at boarding school in the 1970s that had traumatised him for forty years. Nobody had ever connected those two things. We did not start with exercise. We started with the daughter.</p>
+<p>He cried. I nearly did too.</p>
+<p>That is not physiotherapy in any conventional sense. But it is what was needed.</p>
+
+<p class="sec-label">I am not a rubber</p>
+<div class="pull-quote"><p>"Things that change your tissue are knives, car crashes and movement. That's it. If rubbing changed tissue structure, we would be like a jellyfish. What soft tissue work does — when it does anything at all — is desensitize an electrically stimulated organ. It relaxes. It soothes. That is real and valuable. But it is not rehabilitation."</p><cite>From the clinic</cite></div>
+<p>I say this not to dismiss every manual therapist who has ever helped anyone. I say it because the model of healthcare that puts the clinician's hands at the centre of recovery keeps the client passive.</p>
+<p>Passive clients do not recover as well as active ones. The evidence on this is irrefutable.</p>
+<p>You are the doer. I am the guide.</p>
+<p>My job is to create the conditions in which you can recover. To explain what is actually happening. To build the progressions that take you from where you are to where you want to be. To read you, not just the tissue.</p>
+<p>To be one hundred percent positive throughout. Not because positivity is good bedside manner, but because confidence is a physiological prerequisite for movement. The nervous system will not fully commit to a movement it does not believe is safe.</p>
+<p>That is not something you can rub into someone.</p>
+
+<p class="sec-label">Why this matters more than ever</p>
+<p>AI can now generate a rehabilitation programme in seconds. Biomechanical screening apps can analyse movement through a phone camera.</p>
+<p>But none of it changes the thing that actually determines whether someone recovers.</p>
+<p>The relationship. The trust. The conversation that reframes how a person understands their own body. The moment someone stops performing recovery and starts actually inhabiting their body again.</p>
+<p>Those things happen in a room, gym or pitch. Between people. Built over time.</p>
+<p>That is what I do. That is what this series is about.</p>
+<p>Not physiotherapy as the brochure describes it.</p>
+<p>What actually happens in the room.</p>
+<hr class="div">
+<p><em>What They Didn't Tell You publishes regularly on LinkedIn and at AthenaPhysio. Each piece takes something that gets said in the clinic — and almost nowhere else — and puts it where everyone can read it.</em></p>
+
+</article>
+<div class="art-nav">
+  <a href="blog.html" class="back-lnk">← All writing</a>
+  <a href="blog.html">Back to all writing →</a>
+</div>
+<div class="sub-block">
+  <h3>Get every edition delivered</h3>
+  <p>Subscribe on LinkedIn — each issue goes direct to your inbox, fortnightly.</p>
+  <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+</div>
+<footer>
+  <div class="ft-bottom">
+    <span>© 2026 Dr David Silver PhD · Athena Physio</span>
+    <span>MCSP 079015 · HCPC PH82005</span>
+  </div>
+</footer>
+</body>
+</html>

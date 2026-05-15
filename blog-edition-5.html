@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When AI Chooses Your Doctor · Dr David Silver PhD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F2EDE4; --cream-dark: #E8E1D6; --cream-border: #D8CFC4;
+    --crimson: #9B1C1C; --charcoal: #1C1C1C; --charcoal-mid: #3A3A3A; --charcoal-light: #6B6B6B;
+    --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', sans-serif;
+  }
+  body { background: var(--cream); color: var(--charcoal); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--cream); border-bottom: 1px solid var(--cream-border); padding: 0 2.5rem; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-left { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+  .nav-mark { width: 30px; height: 30px; object-fit: contain; }
+  .nav-brand { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--charcoal); }
+  .nav-brand em { font-style: italic; color: var(--crimson); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 11px; font-weight: 400; color: var(--charcoal-light); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--crimson); }
+  .article-hero { margin-top: 68px; position: relative; overflow: hidden; background: var(--cream); height: 320px; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 1; }
+  .hero-grad { position: absolute; inset: 0; background: rgba(28,28,28,0); }
+  .article-header { background: var(--cream); padding: 3rem 2rem 2.5rem; max-width: 680px; margin: 0 auto; border-bottom: 1px solid var(--cream-border); }
+  .art-eyebrow { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+  .art-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--crimson); }
+  .art-title { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 300; line-height: 1.18; color: var(--charcoal); margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .art-sub { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--charcoal-light); margin-bottom: 1.75rem; line-height: 1.55; }
+  .art-meta-row { display: flex; align-items: center; gap: 1.25rem; }
+  .art-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--cream-border); }
+  .art-author-name { font-family: var(--serif); font-size: 15px; font-weight: 400; color: var(--charcoal); display: block; }
+  .art-meta-info { font-size: 11px; color: var(--charcoal-light); letter-spacing: 0.04em; display: flex; gap: 0.6rem; align-items: center; }
+  .mdot { width: 3px; height: 3px; border-radius: 50%; background: var(--cream-border); }
+  .article-body { max-width: 640px; margin: 0 auto; padding: 3rem 2rem 5rem; font-family: var(--serif); font-size: 19px; font-weight: 300; line-height: 1.85; color: var(--charcoal-mid); }
+  .article-body p { margin-bottom: 1.5rem; }
+  .article-body strong { font-weight: 500; color: var(--charcoal); }
+  .article-body em { font-style: italic; }
+  .sec-label { font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin: 3.5rem 0 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--cream-border); }
+  .pull-quote { border-left: 3px solid var(--crimson); padding: 1rem 0 1rem 1.75rem; margin: 2.5rem 0; }
+  .pull-quote p { font-family: var(--serif); font-size: 22px; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--charcoal); margin-bottom: 0.5rem !important; }
+  .pull-quote cite { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--charcoal-light); font-style: normal; }
+  hr.div { border: none; border-top: 1px solid var(--cream-border); margin: 3rem 0; }
+  .art-nav { max-width: 680px; margin: 0 auto; padding: 2rem; border-top: 1px solid var(--cream-border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .art-nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--crimson); text-decoration: none; }
+  .art-nav a:hover { text-decoration: underline; }
+  .back-lnk { font-size: 12px; color: var(--charcoal-light); text-decoration: none; }
+  .back-lnk:hover { color: var(--crimson); }
+  .sub-block { background: var(--charcoal); padding: 3rem 2rem; text-align: center; }
+  .sub-block h3 { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 0.75rem; }
+  .sub-block p { font-size: 14px; font-weight: 300; color: rgba(242,237,228,0.55); margin-bottom: 1.5rem; }
+  .sub-block a { display: inline-block; padding: 0.7rem 2rem; background: var(--crimson); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+  footer { background: var(--charcoal); padding: 2rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .ft-bottom { max-width: 680px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 11px; color: rgba(242,237,228,0.28); flex-wrap: wrap; gap: 0.5rem; }
+  @media (max-width: 600px) { .nav-links { display: none; } .article-body { font-size: 17px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-left">
+    <img src="athena-mark.png" alt="Athena" class="nav-mark">
+    <span class="nav-brand">Dr David Silver PhD · <em>Athena</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="programmes.html">Programmes</a></li>
+    <li><a href="blog.html" class="active">Writing</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="article-hero">
+  <img src="blog_cover.jpg" alt="" class="hero-img">
+  <div class="hero-grad"></div>
+</div>
+<header class="article-header">
+  <p class="art-eyebrow">In the Room with Dr David Silver PhD · Edition Five</p>
+  <h1 class="art-title">When AI Chooses Your Doctor</h1>
+  <p class="art-sub">Why your experience just became your most important asset.</p>
+  <div class="art-meta-row">
+    <img src="silver.png" alt="Dr David Silver PhD" class="art-avatar">
+    <div>
+      <span class="art-author-name">Dr David Silver PhD</span>
+      <div class="art-meta-info"><span>July 2026</span><span class="mdot"></span><span>8 min read</span></div>
+    </div>
+  </div>
+</header>
+<article class="article-body">
+
+<p class="sec-label">The moment</p>
+<p>I was at a presentation recently speaking to a group of business leaders in the wellbeing sector. Afterwards there was a breakout discussion that stopped me in my tracks.</p>
+<p>Someone said: if everyone can now produce a website that looks amazing, that is not a differentiator anymore.</p>
+<p>I had been thinking this myself. The shiny website, the polished social media presence. These used to be signals. Now AI can generate all of it in an afternoon. The signal has become noise.</p>
+<p>So I asked: if the website does not differentiate you anymore, what does?</p>
+<div class="pull-quote"><p>"You are not making that judgment call. Your AI agent is asking my AI agent who is the best person to see. It has deep-dived you and ten other local practitioners and made a rational decision based on your particular concern — the Google reviews, the life experience, the blog post you put up five years ago, the testimonials, the clinical credentials — and said: he is the best fit for you. Nothing to do with how shiny it looks anymore. No one is Googling anything."</p><cite>Health sector business leader</cite></div>
+<p>I sat with that for a while. The more I thought about it, the more it changed how I understood what the last twenty years have actually been building toward.</p>
+
+<p class="sec-label">The insight</p>
+<p>Here is what an AI agent evaluating a clinician is actually looking for.</p>
+<p>Not how good the website looks. Depth. Evidence of real experience. The paper trail of a career spent doing the thing rather than talking about doing the thing.</p>
+<p>Twenty thousand consultations. A PhD earned the long way. Testimonials from real clients. Blog posts that contain genuine insight — actually written. The kind that only exists because someone was actually in the room when it happened.</p>
+<p>For a long time, the healthcare industry rewarded people who were good at marketing themselves. Looking credible was nearly as useful as being credible. I used to get annoyed by the handful of physios I would see on social media spouting all sorts.</p>
+<p>That is changing. Rapidly.</p>
+<p>The twenty years are not the obstacle. The thirty years are the asset.</p>
+
+<p class="sec-label">The bigger picture</p>
+<p>AI is in the process of making depth matter again.</p>
+<p>For a generation, the information economy rewarded surface. The person who could aggregate and present information most attractively had a structural advantage.</p>
+<p>Now an AI agent doing a genuine assessment is doing something closer to what a trusted friend with deep medical knowledge would do. Weighing actual credentials, actual outcomes, actual depth of expertise. Someone that fits with you.</p>
+<p>The blog posts matter. The testimonials matter. This newsletter matters — because it is evidence of thinking, not just existence.</p>
+<p>The differentiator is no longer the gloss. It is the substance underneath.</p>
+<p>Which means the most important thing any experienced clinician can do right now is make their depth visible. Write about what they know and who they are. Share what years in the arena has taught them. I have been liberated to do this.</p>
+<p>That is what this newsletter is. And that, I think, is why it matters more than I initially understood.</p>
+<hr class="div">
+<p><em>Next: The Nonverbal Coach.</em></p>
+
+</article>
+<div class="art-nav">
+  <a href="blog-edition-4.html" class="back-lnk">← Edition Four</a>
+  <a href="blog-edition-6.html">Next: The Nonverbal Coach →</a>
+</div>
+<div class="sub-block">
+  <h3>Get every edition delivered</h3>
+  <p>Subscribe on LinkedIn — each issue goes direct to your inbox, fortnightly.</p>
+  <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+</div>
+<footer>
+  <div class="ft-bottom">
+    <span>© 2026 Dr David Silver PhD · Athena Physio</span>
+    <span>MCSP 079015 · HCPC PH82005</span>
+  </div>
+</footer>
+</body>
+</html>
